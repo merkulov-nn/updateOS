@@ -1,29 +1,31 @@
 # updateOS
-4.18.0-277.el8.x86_64 (версия обнрвленного ядра, правпо почему то старый)
+    
+Домашнее задание
 
-Вагрант файл.
+Обновить ядро в базовой системе
 
-MACHINES = {
-  :"kernel-update" => {
-    :box_name => "centos/stream8",
-     :box_version => "20210210.0",
-       :cpus => 2,
-     :memory => 1024 }
-     }
-     
+Цель:
 
+получить навыки работы с Git, Vagrant, Packer;
+публиковать готовые образы в Vagrant Cloud.
 
-Vagrant.configure("2") do |config|
-  MACHINES.each do |boxname, boxconfig|
-config.vm.synced_folder ".", "/vagrant", disabled: true
-  config.vm.define boxname do |box|
-      box.vm.box = boxconfig[:box_name]
-      box.vm.box_version = boxconfig[:box_version]
-      box.vm.host_name = boxname.to_s
-      box.vm.provider "virtualbox" do |v|
-        v.memory = boxconfig[:memory]
-        v.cpus = boxconfig[:cpus]
-      end
-    end
-  end
-end
+Описание/Пошаговая инструкция выполнения домашнего задания:
+
+Программа минимум: установить свежее ванильное ядро.
+
+Уже настроили рабочее место? Если еще нет - используйте инструкцию ниже
+https://docs.google.com/document/d/1fZUXL30bDhJEQpDQgtfv3Nj4WYWto98AaYlC1vJ2LkQ/edit?usp=sharing
+
+Для выполнения домашнего задания используйте методичку
+
+https://docs.google.com/document/d/12sC884LuLGST3-tZYQBDPvn6AH8AGJCK/edit?usp=share_link&ouid=107126378526912727172&rtpof=true&sd=true
+
+Выполните действия, описанные в методичке.
+
+Полученный в ходе выполнения ДЗ Vagrantfile залейте в ваш git-репозиторий.
+Пришлите ссылку на него в чате для проверки ДЗ. Обычно мы проверяем ДЗ в течение 48 часов.
+
+Для выполнения ДЗ со * и ** вам потребуется сборка ядра и модулей из исходников.
+Если возникнут вопросы, обращайтесь к студентам, преподавателям и наставникам в канал группы в Slack.
+Удачи при выполнении!
+
